@@ -46,14 +46,39 @@ body,
   font-weight: 700;
 }
 
-.project-list {
-  list-style: none;
-  padding: 12px;
-  overflow-y: auto;
+.list-scroll {
   flex: 1;
+  overflow-y: auto;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.other-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 4px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.other-toggle:active {
+  color: var(--text);
 }
 
 .project-card {

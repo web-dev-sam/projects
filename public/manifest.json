@@ -1,6 +1,6 @@
 {
-  "name": "Project Launcher",
-  "short_name": "Launcher",
+  "name": "Webry",
+  "short_name": "Webry",
   "description": "Quick access to your projects",
   "start_url": "/",
   "display": "standalone",

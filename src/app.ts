@@ -1,5 +1,5 @@
 import type { Project } from "./types";
-import { PROJECTS } from "./projects";
+import { PROJECTS, OTHER_PROJECTS } from "./projects";
 
 export class App {
   private listView: HTMLElement;
@@ -36,34 +36,52 @@ export class App {
     const header = document.createElement("header");
     header.className = "app-header";
     const h1 = document.createElement("h1");
-    h1.textContent = "⚡ Launcher";
+    h1.textContent = "⚡ Webry";
     header.append(h1);
 
     const list = document.createElement("ul");
     list.className = "project-list";
+    for (const p of PROJECTS) list.append(this.buildCard(p));
 
-    for (const project of PROJECTS) {
-      const li = document.createElement("li");
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "project-card";
+    const otherList = document.createElement("ul");
+    otherList.className = "project-list hidden";
+    for (const p of OTHER_PROJECTS) otherList.append(this.buildCard(p));
 
-      const nameEl = document.createElement("span");
-      nameEl.className = "card-name";
-      nameEl.textContent = project.name;
+    const toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.className = "other-toggle";
+    toggleBtn.textContent = "Other ▾";
+    toggleBtn.addEventListener("click", () => {
+      const nowHidden = otherList.classList.toggle("hidden");
+      toggleBtn.textContent = nowHidden ? "Other ▾" : "Other ▴";
+    });
 
-      const urlEl = document.createElement("span");
-      urlEl.className = "card-url";
-      urlEl.textContent = new URL(project.url).hostname;
+    const scroll = document.createElement("div");
+    scroll.className = "list-scroll";
+    scroll.append(list, toggleBtn, otherList);
 
-      btn.append(nameEl, urlEl);
-      btn.addEventListener("click", () => this.open(project));
-      li.append(btn);
-      list.append(li);
-    }
-
-    view.append(header, list);
+    view.append(header, scroll);
     return view;
+  }
+
+  private buildCard(project: Project): HTMLLIElement {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "project-card";
+
+    const nameEl = document.createElement("span");
+    nameEl.className = "card-name";
+    nameEl.textContent = project.name;
+
+    const urlEl = document.createElement("span");
+    urlEl.className = "card-url";
+    urlEl.textContent = new URL(project.url).hostname;
+
+    btn.append(nameEl, urlEl);
+    btn.addEventListener("click", () => this.open(project));
+    li.append(btn);
+    return li;
   }
 
   private open(project: Project): void {

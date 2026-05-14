@@ -94,7 +94,7 @@ function drawIcon(px, size) {
     px[o + 3] = 255;
   }
 
-  const pad = Math.round(size * 0.14);
+  const pad = Math.round(size * 0.25);
   const gap = Math.round(size * 0.055);
   const cell = Math.round((size - 2 * pad - gap) / 2);
   const rx = Math.round(cell * 0.18);
