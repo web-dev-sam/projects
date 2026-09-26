@@ -1,0 +1,20 @@
+{
+  "title": "Projects",
+  "tagline": "A simple PWA for easy access to commonly used projects. 📱",
+  "sections": [
+    {
+      "title": "What it is",
+      "body": [
+        "A tiny Vite + TypeScript PWA that lists my projects (`src/projects.ts`) as links. Live at [pwa.webry.com](https://pwa.webry.com)."
+      ]
+    },
+    {
+      "title": "How to run it",
+      "numbered": [
+        "`pnpm install`",
+        "`pnpm dev`",
+        "`pnpm build` / `pnpm preview`"
+      ]
+    }
+  ]
+}
