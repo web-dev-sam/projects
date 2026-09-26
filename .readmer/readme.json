@@ -16,5 +16,6 @@
         "`pnpm build` / `pnpm preview`"
       ]
     }
-  ]
+  ],
+  "why": "One home-screen icon that gets me to the projects I open every day."
 }

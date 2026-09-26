@@ -9,6 +9,9 @@ _A simple PWA for easy access to commonly used projects. 📱_
 
 &nbsp;
 
+## Why does this exist?
+One home-screen icon that gets me to the projects I open every day.
+
 ## What it is
 
 A tiny Vite + TypeScript PWA that lists my projects (`src/projects.ts`) as links. Live at [pwa.webry.com](https://pwa.webry.com).
